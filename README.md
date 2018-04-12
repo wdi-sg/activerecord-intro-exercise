@@ -85,9 +85,3 @@ In byebug (via the console)...
 9. Delete that song
 10. Find all of Enya's songs again, store in a variable
   - Using `each`, iterate over those songs and for each song, print "I like" + the song name
-
-# further
-
-Add a new table `collaborations` to your application. Collaborations should join `artists` and `songs` should have `name` and `genre` columns. Change the relationships so that an `artist` has many `songs` and a `song` has many `artists` through `collaborations`
-
-Create at least 5 collaborations between `artists`
