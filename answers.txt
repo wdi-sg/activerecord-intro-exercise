@@ -1,0 +1,69 @@
+SECTION 1.1
+
+1. Artist.all
+
+2. Artist.find(8)
+
+3. Artist.find_by(name: "Taylor Swift")
+
+4. Artist.where(nationality: "American")
+
+5. Artist.where.not(nationality: "American")
+
+6. stefanie = Artist.new(name: "Stefanie Sun", nationality: "Singaporean", photo_url: "https://vulcanpost.com/342681/6-lessons-stefanie-sun/")
+stefanie.save or she = Artist.create(name: "S.H.E", nationality: "Taiwan")
+
+7. she = Artist.find_by(name: "S.H.E")
+#<Artist id: 16, name: "S.H.E", photo_url: nil, nationality: "Taiwan">
+
+HOW COME I CAN'T USE THE variable NAME???
+
+(byebug) she = Artist.find_by(name: "S.H.E")
+#<Artist id: 16, name: "S.H.E", photo_url: nil, nationality: "Canadian">
+(byebug) she.update(name: "S.H.E.E")
+true
+
+8. stephanie.destroy
+
+FURTHER
+
+psql -d artist_db < schema.sql
+
+
+SECTION 1.3
+
+1. 
+Enya = Artist.find_by(name: "Enya")
+
+2. 
+selectedsongs = Enya.songs
+
+3. 
+selectedsongs.first.title
+
+4. 
+Song.find_by(title: "Unstoppable")
+
+5. 
+unstoppable_singer = unstoppable.artist.name
+
+6. 
+unstoppable_singer = "Fish"
+unstoppable.save
+
+7.
+Enya.songs.create(title: "New Enya Song", album: "2018 Enya Best Collection", preview_url: "http://test.com")
+
+8. 
+Song.find(256).destroy
+Song.find(255).destroy
+
+
+9. 
+Enya = Artist.find_by(name: "Enya")
+selectedsongs = Enya.songs
+
+selectedsongs.each do |item|
+	name = item.title
+	puts "I like the song #{name}"
+end 
