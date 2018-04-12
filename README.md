@@ -2,13 +2,39 @@
 
 ## Local Setup
 
-Create your `schema.sql`
+Create your `schema.sql`:
+```
+DROP TABLE IF EXISTS songs;
+DROP TABLE IF EXISTS artists;
+
+CREATE TABLE artists(
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  photo_url TEXT,
+  nationality TEXT
+);
+
+CREATE TABLE songs(
+  id SERIAL PRIMARY KEY,
+  title TEXT,
+  album TEXT,
+  preview_url TEXT,
+  artist_id INT
+);
+```
 
 ```bash
 bundle install
 createdb tunr_db
 psql -d tunr_db < schema.sql
 psql -d tunr_db < seeds.sql
+```
+
+Create your artist class:
+```
+class Artist < ActiveRecord::Base
+  # AR classes are singular and capitalized by convention
+end
 ```
 
 ## Part 1.1 - Use your Artist Model
